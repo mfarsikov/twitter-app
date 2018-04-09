@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Twitter app</title>
+</head>
+<body>
+<h3>Hello, <span th:text="${twitterProfile.name}">Some User</span>!</h3>
+<form action="/tweets">
+    <p>Supports same syntax as a <a href="https://twitter.com/search-home#">Twitter's search</a></p>
+    <input type="text" name="queryString"/>
+    <input type="submit" name="action" value="Search"/>
+    <input type="submit" name="action" value="I'm feeling lucky!"/>
+</form>
+
+<h4>Found tweets:</h4>
+<ul>
+    <li th:each="tweet:${tweets}" th:text="${tweet.text}">Friend</li>
+</ul>
+<ul><li><a href="/logout">Logout</a></li></ul>
+</body>
+</html>

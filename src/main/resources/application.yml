@@ -1,0 +1,3 @@
+spring.social.twitter:
+  appId: ${SPRING_SOCIAL_TWITTER_APPID}
+  appSecret: ${SPRING_SOCIAL_TWITTER_APPSECRET}

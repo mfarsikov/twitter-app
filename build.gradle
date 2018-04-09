@@ -1,36 +1,38 @@
 buildscript {
-	ext {
-		springBootVersion = '2.0.1.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.12.RELEASE")
+    }
 }
 
+apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
 
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+jar {
+    baseName = 'twitter-app'
+    version =  '0.1.0'
+}
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-cache')
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-security')
-	compile('org.springframework.boot:spring-boot-starter-webflux')
-	compile('org.springframework.session:spring-session-core')
-	runtime('com.h2database:h2')
-	compileOnly('org.projectlombok:lombok')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('io.projectreactor:reactor-test')
-	testCompile('org.springframework.security:spring-security-test')
+    compile 'commons-beanutils:commons-beanutils:1.9.3'
+    compile 'org.hibernate:hibernate-java8'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'org.springframework.social:spring-social-twitter'
+
+    compileOnly 'org.projectlombok:lombok'
+
+    runtime 'com.h2database:h2'
+
 }
+
